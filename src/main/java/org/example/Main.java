@@ -8,10 +8,9 @@ public class Main {
 
         // Registering a restaurant
         Restaurant restaurant1 = new Restaurant("1", "The Great Restaurant", "City1", "Area1", "Italian", 4.5, 500, true);
-        Restaurant restaurant2 = new Restaurant("2", "Seafood Delight", "City1", "Area2", "Seafood", 4.7, 700, false);
+        Restaurant restaurant2 = new Restaurant("2", "Seafood Delight", "City1", "Area2", "Seafood", 4.7, 400, false);
         system.registerRestaurant(restaurant1);
         system.registerRestaurant(restaurant2);
-
         // Adding slots to the restaurants
         List<Slot> slotsForRestaurant1 = Arrays.asList(new Slot("18:00", 10), new Slot("19:00", 10), new Slot("20:00", 10));
         system.addSlots("1", "2024-06-25", slotsForRestaurant1);
@@ -23,6 +22,11 @@ public class Main {
         Map<String, String> filters = new HashMap<>();
         filters.put("city", "City1");
         filters.put("cuisine", "Italian");
+        filters.put("rating", "4.5");
+        filters.put("name","The Great Restaurant");
+        filters.put("area", "Area1");
+        filters.put("costForTwo", "500");
+        filters.put("isVeg","true");
 
         List<Restaurant> searchResults = system.searchRestaurant(filters);
         System.out.println("Search Results:");
